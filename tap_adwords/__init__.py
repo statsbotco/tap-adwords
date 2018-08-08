@@ -357,7 +357,7 @@ def sync_report_for_day(stream_name, stream_schema, sdk_client, start, field_lis
             bookmarks.write_bookmark(STATE,
                                      state_key_name(sdk_client.client_customer_id, stream_name),
                                      'date',
-                                     utils.strftime(start.strftime))
+                                     utils.strftime(start))
             singer.write_state(STATE)
         else:
             LOGGER.info('not updating bookmark: %s <= %s', start, get_start_for_stream(sdk_client.client_customer_id, stream_name))
